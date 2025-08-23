@@ -1,0 +1,42 @@
+@extends('admin.layouts.master')
+
+@section('content')
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">{{ __('Edit FAQ') }}</h1>
+    <a href="{{ route('admin_faq_index') }}" class="d-none d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-bars"></i> {{ __('All Items') }}
+    </a>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <form action="{{ route('admin_faq_update',$faq->id) }}" method="post">
+            @csrf
+            <div class="mb-3">
+                <label for="" class="form-label">{{ __('Question') }}*</label>
+                <input type="text" name="question" class="form-control" value="{{ $faq->question }}">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">{{ __('QuestionAR') }}*</label>
+                <input type="text" name="question_ar" class="form-control" value="{{ $faq->question_ar }}">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">{{ __('QuestionKRD') }}*</label>
+                <input type="text" name="question_krd" class="form-control" value="{{ $faq->question_krd }}">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">{{ __('Answer') }}*</label>
+                <textarea name="answer" class="form-control editor" cols="30" rows="10">{{ $faq->answer }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">{{ __('AnswerAR') }}*</label>
+                <textarea name="answer_ar" class="form-control editor" cols="30" rows="10">{{ $faq->answer_ar }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">{{ __('AnswerKRD') }}*</label>
+                <textarea name="answer_krd" class="form-control editor" cols="30" rows="10">{{ $faq->answer_krd }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-success mb-50 btn-common">{{ __('Update') }}</button>
+        </form>
+    </div>
+</div>
+@endsection
