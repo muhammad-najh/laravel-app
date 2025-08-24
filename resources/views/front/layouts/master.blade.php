@@ -352,10 +352,7 @@
             @csrf
             <select name="code" class="form-control" onchange="this.form.submit()" style="background-color: transparent; color: #fff; border: none;">
                 @foreach($global_languages as $global_language)
-                     @if($global_language->code=='en')                      //remove
                     <option style="background-color: transparent; color: #000; border: none;" value="{{ $global_language->code }}" @if($global_language->name == session('sess_lang_name')) selected style="color: #ffffff;" @endif>{{ $global_language->name }}</option>
-                    //remove
-                    @endif
                 @endforeach
             </select>
         </form>
