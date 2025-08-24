@@ -39,9 +39,6 @@ services:
       MYSQL_USER: laravel
       MYSQL_PASSWORD: root
       MYSQL_ROOT_HOST: '%'
-    command: --default-authentication-plugin=mysql_native_password
-
-
     ports:
       - "3306:3306"
     volumes:
@@ -55,6 +52,7 @@ services:
     restart: unless-stopped
     environment:
       PMA_HOST: db
+      PMA_PORT: 3306
       PMA_USER: root
       PMA_PASSWORD: root
     ports:
@@ -69,4 +67,3 @@ networks:
 
 volumes:
   db_data:
-  vendor:
